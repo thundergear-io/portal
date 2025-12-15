@@ -5,7 +5,9 @@ use App\Http\Middleware\CheckoutParameterMiddleware;
 use App\Http\Middleware\EnsureUserHasPermissions;
 use App\Http\Middleware\ImpersonateMiddleware;
 use App\Http\Middleware\ProxyMiddleware;
+use App\Http\Middleware\ResolveUserSession;
 use App\Http\Middleware\SetLocale;
+use App\Http\Middleware\LockSession;
 use App\Models\DebugLog;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -28,8 +30,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'checkout' => CheckoutParameterMiddleware::class,
         ]);
         $middleware->web([
-            SetLocale::class,
+            ResolveUserSession::class,
+            LockSession::class,
             ImpersonateMiddleware::class,
+            SetLocale::class,
         ]);
     })
     ->withEvents(discover: [
