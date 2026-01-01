@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Cabinet Grotesk';
+    src: url('fonts/CabinetGrotesk-Extrabold.woff') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('fonts/Satoshi-Medium.woff') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
