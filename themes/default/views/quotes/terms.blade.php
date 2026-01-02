@@ -2,14 +2,12 @@
     <div class="flex flex-col lg:flex-row min-h-screen relative z-0">
 
         <!-- Left side (same as show) -->
-        <div class="w-full lg:w-1/2 bg-red-500 lg:sticky lg:top-16 lg:overflow-y-auto z-0">
-            <div class="absolute top-0 -translate-y-64 left-1/2 -translate-x-1/2 blur-3xl pointer-events-none" aria-hidden="true">
-                <div class="w-96 h-96 bg-primary/20 rounded-full"></div>
-            </div>
+        <div class="w-full lg:w-1/2 bg-black lg:sticky lg:top-0 lg:h-screen z-0 overflow-hidden relative">
+            <div class="absolute inset-0 pointer-events-none" id="beams-container"></div>
 
-            <div class="min-h-full w-full max-w-xl mx-auto flex flex-col justify-start px-4 sm:px-6 py-12 lg:py-20">
+            <div class="min-h-full w-full max-w-xl mx-auto flex flex-col justify-start px-4 sm:px-6 py-12 lg:py-20 relative z-10">
                 <div class="grow flex flex-col justify-center">
-                    <div class="space-y-3">
+                    <div class="bg-base-200/20 backdrop-blur rounded-3xl p-6 space-y-3">
                         <div class="flex items-center gap-3">
                             <h2 class="text-xl font-bold text-primary">Quote for</h2>
                             <span class="badge {{ $quote->status->value === 'approved' ? 'badge-success' : ($quote->status->value === 'declined' ? 'badge-error' : 'badge-warning') }}">
@@ -38,37 +36,68 @@
                             @csrf
 
                             <div class="space-y-6">
-                                <label class="flex items-start gap-4 p-4 border border-base-300 rounded-xl bg-base-100 hover:border-primary/50 transition-colors cursor-pointer">
-                                    <input type="checkbox" name="agree_scope" class="checkbox checkbox-primary mt-1" required>
-                                    <span class="space-y-1">
-                                        <span class="block font-semibold">Project Scope</span>
-                                        <span class="block text-sm text-base-content/70 leading-relaxed">I agree to the scope and deliverables outlined in the brief.</span>
-                                    </span>
-                                </label>
+                                <div class="space-y-4">
+                                    <h4 class="font-semibold">Select Payment Schedule</h4>
+                                    <div class="space-y-3">
+                                        <label class="flex items-start gap-3 p-4 border border-base-300 rounded-xl bg-base-100 hover:border-primary/50 transition-colors cursor-pointer">
+                                            <input type="radio" name="payment_schedule" value="50_percent" class="radio radio-primary mt-1" checked>
+                                            <div>
+                                                <div class="font-semibold">50% Upfront Deposit</div>
+                                                <div class="text-sm text-base-content/70">Pay {{ $quote->currencyModel?->prefix ?? '$' }}{{ number_format($quote->total * 0.5, 2) }} now to start the project.</div>
+                                            </div>
+                                        </label>
 
-                                <label class="flex items-start gap-4 p-4 border border-base-300 rounded-xl bg-base-100 hover:border-primary/50 transition-colors cursor-pointer">
-                                    <input type="checkbox" name="agree_timeline" class="checkbox checkbox-primary mt-1" required>
-                                    <span class="space-y-1">
-                                        <span class="block font-semibold">Timeline</span>
-                                        <span class="block text-sm text-base-content/70 leading-relaxed">I acknowledge the proposed timeline and understand adjustments may require change requests.</span>
-                                    </span>
-                                </label>
+                                        <label class="flex items-start gap-3 p-4 border border-base-300 rounded-xl bg-base-100 hover:border-primary/50 transition-colors cursor-pointer">
+                                            <input type="radio" name="payment_schedule" value="100_percent" class="radio radio-primary mt-1">
+                                            <div>
+                                                <div class="font-semibold flex items-center gap-2">
+                                                    100% Upfront
+                                                    <span class="badge badge-sm badge-secondary">10% Discount</span>
+                                                </div>
+                                                <div class="text-sm text-base-content/70">
+                                                    Pay <span class="line-through">{{ $quote->currencyModel?->prefix ?? '$' }}{{ number_format($quote->total, 2) }}</span> 
+                                                    <span class="font-bold text-success">{{ $quote->currencyModel?->prefix ?? '$' }}{{ number_format($quote->total * 0.9, 2) }}</span> now.
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
 
-                                <label class="flex items-start gap-4 p-4 border border-base-300 rounded-xl bg-base-100 hover:border-primary/50 transition-colors cursor-pointer">
-                                    <input type="checkbox" name="agree_payment" class="checkbox checkbox-primary mt-1" required>
-                                    <span class="space-y-1">
-                                        <span class="block font-semibold">Payment Terms</span>
-                                        <span class="block text-sm text-base-content/70 leading-relaxed">I accept the payment terms associated with this quote.</span>
-                                    </span>
-                                </label>
+                                <div class="divider"></div>
 
-                                <label class="flex items-start gap-4 p-4 border border-base-300 rounded-xl bg-base-100 hover:border-primary/50 transition-colors cursor-pointer">
-                                    <input type="checkbox" name="agree_terms" class="checkbox checkbox-primary mt-1" required>
-                                    <span class="space-y-1">
-                                        <span class="block font-semibold">Terms & Conditions</span>
-                                        <span class="block text-sm text-base-content/70 leading-relaxed">I agree to the full Terms & Conditions referenced above.</span>
-                                    </span>
-                                </label>
+                                <div class="space-y-2">
+                                    <label class="flex items-start gap-3 p-3 border border-base-300 rounded-lg bg-base-100 hover:border-primary/50 transition-colors cursor-pointer">
+                                        <input type="checkbox" name="agree_scope" class="checkbox checkbox-primary checkbox-sm mt-0.5" required>
+                                        <span class="space-y-0.5">
+                                            <span class="block font-semibold text-sm">Project Scope</span>
+                                            <span class="block text-xs text-base-content/70 leading-relaxed">I agree to the scope and deliverables outlined in the brief.</span>
+                                        </span>
+                                    </label>
+
+                                    <label class="flex items-start gap-3 p-3 border border-base-300 rounded-lg bg-base-100 hover:border-primary/50 transition-colors cursor-pointer">
+                                        <input type="checkbox" name="agree_timeline" class="checkbox checkbox-primary checkbox-sm mt-0.5" required>
+                                        <span class="space-y-0.5">
+                                            <span class="block font-semibold text-sm">Timeline</span>
+                                            <span class="block text-xs text-base-content/70 leading-relaxed">I acknowledge the proposed timeline and understand adjustments may require change requests.</span>
+                                        </span>
+                                    </label>
+
+                                    <label class="flex items-start gap-3 p-3 border border-base-300 rounded-lg bg-base-100 hover:border-primary/50 transition-colors cursor-pointer">
+                                        <input type="checkbox" name="agree_payment" class="checkbox checkbox-primary checkbox-sm mt-0.5" required>
+                                        <span class="space-y-0.5">
+                                            <span class="block font-semibold text-sm">Payment Terms</span>
+                                            <span class="block text-xs text-base-content/70 leading-relaxed">I accept the payment terms associated with this quote.</span>
+                                        </span>
+                                    </label>
+
+                                    <label class="flex items-start gap-3 p-3 border border-base-300 rounded-lg bg-base-100 hover:border-primary/50 transition-colors cursor-pointer">
+                                        <input type="checkbox" name="agree_terms" class="checkbox checkbox-primary checkbox-sm mt-0.5" required>
+                                        <span class="space-y-0.5">
+                                            <span class="block font-semibold text-sm">Terms & Conditions</span>
+                                            <span class="block text-xs text-base-content/70 leading-relaxed">I agree to the full Terms & Conditions referenced above.</span>
+                                        </span>
+                                    </label>
+                                </div>
                             </div>
 
                             @if ($errors->any())
@@ -93,4 +122,7 @@
             </div>
         </main>
     </div>
+    @push('scripts')
+        @vite('themes/' . config('settings.theme', 'default') . '/js/beams.js', config('settings.theme', 'default'))
+    @endpush
 </x-app-layout>

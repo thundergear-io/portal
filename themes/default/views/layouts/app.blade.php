@@ -43,7 +43,7 @@
         <x-navigation.sidebar title="$title" />
         @endif
         <div class="{{ (isset($sidebar) && $sidebar) ? 'md:ml-64 rtl:ml-0 rtl:md:mr-64' : '' }} flex flex-col flex-grow overflow-auto">
-            <main class="mt-16 grow">
+            <main class="mt-20 grow">
                 {{ $slot }}
             </main>
             <x-notification />
@@ -56,6 +56,7 @@
     </div>
     @livewireScriptConfig 
     {!! hook('footer') !!}
+    @stack('scripts')
 </body>
 
 </html>

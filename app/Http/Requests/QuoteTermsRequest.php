@@ -14,6 +14,7 @@ class QuoteTermsRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'payment_schedule' => ['required', 'in:50_percent,100_percent'],
             'agree_scope' => ['accepted'],
             'agree_timeline' => ['accepted'],
             'agree_payment' => ['accepted'],
@@ -24,6 +25,7 @@ class QuoteTermsRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'payment_schedule.required' => 'Please select a payment schedule.',
             'agree_scope.accepted' => 'Please confirm agreement to the project scope.',
             'agree_timeline.accepted' => 'Please confirm acknowledgment of the timeline.',
             'agree_payment.accepted' => 'Please confirm acceptance of the payment terms.',

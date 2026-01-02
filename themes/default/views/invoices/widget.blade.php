@@ -1,5 +1,5 @@
 <div class="space-y-4">
-    @foreach ($invoices as $invoice)
+    @forelse ($invoices as $invoice)
     <a href="{{ route('invoices.show', $invoice) }}" wire:navigate>
         <div class="bg-base-200 hover:bg-base-200/80 border border-base-300 p-4 rounded-3xl mb-4">
             <div class="flex items-center justify-between mb-2">
@@ -33,5 +33,9 @@
             @endforeach
         </div>
     </a>
-    @endforeach
+    @empty
+    <div class="bg-base-200 border border-base-300 p-4 rounded-3xl">
+        <p class="text-base text-sm">{{ __('invoices.no_invoices') }}</p>
+    </div>
+    @endforelse
 </div>

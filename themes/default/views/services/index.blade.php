@@ -1,4 +1,4 @@
-<div class="container mt-14 space-y-4">
+<div class="container mt-20 space-y-4">
     <x-navigation.breadcrumb />
     @forelse ($services as $service)
     <a href="{{ route('services.show', $service) }}" wire:navigate>
@@ -34,7 +34,7 @@
         </div>
     </a>
     @empty
-    <div class="bg-base-100 border border-base-300 p-4 rounded-3xl">
+    <div class="bg-base-200 border border-base-300 p-4 rounded-3xl">
         <p class="text-base text-sm">{{ __('services.no_services') }}</p>
     </div>
     @endforelse

@@ -1,5 +1,5 @@
 <div class="space-y-4">
-    @foreach ($services as $service)
+    @forelse ($services as $service)
     <a href="{{ route('services.show', $service) }}" wire:navigate>
         <div class="bg-base-200 hover:bg-base-200/80 border border-base-200 p-4 rounded-3xl mb-4">
         <div class="flex items-center justify-between mb-2">
@@ -29,5 +29,9 @@
         ]) : '' }} {{ $service->expires_at ? '- ' . __('services.expires_at') . ': '. $service->expires_at->format('M d, Y') : ''}}</p>
         </div>
     </a>
-    @endforeach
+    @empty
+    <div class="bg-base-200 border border-base-300 p-4 rounded-3xl">
+        <p class="text-base text-sm">{{ __('services.no_services') }}</p>
+    </div>
+    @endforelse
 </div>

@@ -1,7 +1,7 @@
-<div class="container mt-14 space-y-4">
+<div class="container mt-20 space-y-4">
     <div class="flex flex-row justify-between">
         <x-navigation.breadcrumb />
-        <x-navigation.link :href="route('tickets.create')" class="flex items-center gap-2 btn btn-primary">
+        <x-navigation.link :href="route('tickets.create')" class="flex items-center gap-2 btn btn-primary text-black hover:bg-primary hover:text-black">
             <x-ri-add-line class="size-5" />
             <span>{{ __('ticket.create_ticket') }}</span>
         </x-navigation.link>

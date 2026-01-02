@@ -131,6 +131,7 @@ const initSwiper = () => {
         new Swiper('#heroSwiper', {
             modules: [Navigation, Pagination, Autoplay],
             loop: true,
+            grabCursor: true,
             autoplay: {
                 delay: 5000,
                 disableOnInteraction: false,

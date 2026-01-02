@@ -65,7 +65,7 @@
                 <div class="sticky top-24 space-y-8">
                     <div>
                         <h3 class="text-xl sm:text-2xl font-black text-base-content mb-6 flex items-center gap-3">
-                            <span class="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-primary text-primary-content text-xs sm:text-sm">1</span>
+                            <span class="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-primary text-black text-xs sm:text-sm">1</span>
                             Choose Billing Term
                         </h3>
                         <div class="grid gap-4">
@@ -107,7 +107,7 @@
         </div>
 
         <!-- Bottom Bar -->
-        <div class="mt-16">
+        <div class="mt-20">
             <div class="bg-base-200 rounded-3xl p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl border border-base-300 relative overflow-hidden">
                 <!-- Decorative background element -->
                 <div class="absolute top-0 right-0 -mt-20 -mr-20 h-64 w-64 rounded-full bg-primary/5 blur-3xl"></div>

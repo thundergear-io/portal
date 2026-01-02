@@ -16,7 +16,7 @@
                 <div class="flex flex-col">
                     @foreach ($categories as $ccategory)
                     <a href="{{ route('category.show', ['category' => $ccategory->slug]) }}" wire:navigate
-                        class="px-4 py-3 mb-2 rounded-2xl transition-all border border-base-300 bg-base-300/50 duration-200 flex items-center justify-between group {{ $category->id == $ccategory->id ? 'bg-primary text-primary-content' : 'hover:bg-base-300 text-base-content/70 hover:text-base-content' }}">
+                        class="px-4 py-3 mb-2 rounded-2xl transition-all border border-base-300 bg-base-300/50 duration-200 flex items-center justify-between group {{ $category->id == $ccategory->id ? 'bg-primary text-black' : 'hover:bg-base-300 text-base-content/70 hover:text-base-content' }}">
                         <span>{{ $ccategory->name }}</span>
                         @if($category->id == $ccategory->id)
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">

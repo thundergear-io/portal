@@ -2,11 +2,11 @@
     <div class="flex flex-col gap-12">
         <!-- Swiper Slider -->
         <div class="mx-auto px-4 sm:px-6 container lg:px-8 mt-8">
-            <div class="swiper h-[400px] sm:h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-base-300" id="heroSwiper">
+            <div class="swiper h-[400px] sm:h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-base-300 group" id="heroSwiper" style="--swiper-theme-color: var(--color-primary); --swiper-pagination-bullet-inactive-color: rgba(255,255,255,0.5); --swiper-navigation-size: 16px;">
                 <div class="swiper-wrapper">
                     @forelse ($sliders as $slider)
-                    <div class="swiper-slide relative group">
-                        <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title ?? 'Slide' }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="swiper-slide relative group/slide">
+                        <img src="{{ Storage::url($slider->image) }}" alt="{{ $slider->title ?? 'Slide' }}" class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-105">
                         @if ($slider->link)
                         <a href="{{ $slider->link }}" class="absolute inset-0 z-10"></a>
                         @endif
@@ -14,16 +14,16 @@
                     </div>
                     @empty
                     @for ($i = 1; $i <= 3; $i++)
-                    <div class="swiper-slide relative group">
-                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=600&fit=crop" alt="Slide {{ $i }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="swiper-slide relative group/slide">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=600&fit=crop" alt="Slide {{ $i }}" class="w-full h-full object-cover transition-transform duration-700 group-hover/slide:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     </div>
                     @endfor
                     @endforelse
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev !text-white !bg-black/20 !backdrop-blur-md !w-12 !h-12 !rounded-full after:!text-xl hover:!bg-black/40 transition-all"></div>
-                <div class="swiper-button-next !text-white !bg-black/20 !backdrop-blur-md !w-12 !h-12 !rounded-full after:!text-xl hover:!bg-black/40 transition-all"></div>
+                <div class="swiper-pagination !bottom-8"></div>
+                <div class="swiper-button-prev !text-white !bg-black/20 !backdrop-blur-md !w-10 !h-10 !rounded-full hover:!bg-primary hover:!text-black transition-all shadow-lg border border-white/10"></div>
+                <div class="swiper-button-next !text-white !bg-black/20 !backdrop-blur-md !w-10 !h-10 !rounded-full hover:!bg-primary hover:!text-black transition-all shadow-lg border border-white/10"></div>
             </div>
         </div>
 

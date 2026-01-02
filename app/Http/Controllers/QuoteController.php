@@ -73,7 +73,16 @@ class QuoteController extends Controller
 
     public function acceptTerms(QuoteTermsRequest $request, Quote $quote): RedirectResponse
     {
-        // Terms accepted; proceed to checkout (requires auth)
+        if ($quote->status !== QuoteStatus::Pending) {
+            return redirect()->route('quotes.checkout', ['quote' => $quote->public_id]);
+        }
+
+        $quote->status = QuoteStatus::Approved;
+        $quote->payment_schedule = $request->input('payment_schedule');
+        $quote->decided_at = now();
+        $quote->decision_ip = $request->ip();
+        $quote->save();
+
         return redirect()->route('quotes.checkout', ['quote' => $quote->public_id]);
     }
 

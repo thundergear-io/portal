@@ -1,9 +1,9 @@
 <x-app-layout :title="$title ?? 'Projects'" :sidebar="true">
-    <div class="container mt-14">
+    <div class="container mt-20">
         {{-- <x-navigation.breadcrumb /> --}}
         <div class="flex items-center justify-between gap-4 mb-6">
             <div>
-                <h1 class="text-2xl font-bold text-base-content">Projects</h1>
+                <h1 class="text-2xl text-base-content">Projects</h1>
                 <p class="text-base-content/70">Track progress for your approved quotes.</p>
             </div>
         </div>
@@ -27,10 +27,15 @@
                                 <div class="flex items-center gap-3">
                                     <h2 class="text-lg font-semibold">{{ $project->title }}</h2>
                                     <span class="badge {{ $project->status === 'completed' ? 'badge-success' : ($project->status === 'in_progress' ? 'badge-primary' : ($project->status === 'review' ? 'badge-warning' : 'badge-outline')) }}">
-                                        {{ \Illuminate\Support\Str::headline($project->status) }}
+                                        Project: {{ \Illuminate\Support\Str::headline($project->status) }}
                                     </span>
                                 </div>
-                                <p class="text-sm text-base-content/70">Quote: {{ $project->quote?->title ?? 'N/A' }}</p>
+                                <p class="text-sm text-base-content/70">
+                                    Quote: {{ $project->quote?->title ?? 'N/A' }}
+                                    @if($project->quote)
+                                        <span class="badge badge-sm badge-outline ml-2">{{ ucfirst($project->quote->status->value) }}</span>
+                                    @endif
+                                </p>
                             </div>
                             <div class="text-right">
                                 <div class="text-sm text-base-content/70">Total</div>
@@ -70,7 +75,7 @@
                     </div>
                 </div>
             @empty
-                <div class="alert">
+                <div class="flex flex-col p-4 bg-base-200 border border-base-300 rounded-3xl">
                     <div>
                         <span class="font-semibold">No projects yet.</span>
                         <p class="text-base-content/70">Approve a quote to start tracking a project.</p>

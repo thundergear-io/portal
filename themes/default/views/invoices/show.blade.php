@@ -1,4 +1,4 @@
-<div class="container mt-14">
+<div class="container mt-20">
     <div @if ($checkPayment) wire:poll.5s="checkPaymentStatus" @endif>
         @if ($this->pay || $showPayModal)
         @include('invoices.partials.payment-modal')

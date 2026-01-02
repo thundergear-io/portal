@@ -1,4 +1,4 @@
-<div class="container mt-14">
+<div class="container mt-20">
     @if($invoice = $service->invoices()->where('status', 'pending')->first())
     <div class="w-full mb-4">
         <div class="bg-yellow-600/20 border-l-4 border-yellow-500 text-yellow-300 p-4 rounded-3xl">

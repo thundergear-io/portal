@@ -1,4 +1,4 @@
-<div class="container mt-14">
+<div class="container mt-20">
     <div class="bg-primary-800 p-6 rounded-3xl mt-2">
         <h1 class="text-2xl font-semibold">Ticket #{{ $ticket->id }} - {{ $ticket->subject }}</h1>
 

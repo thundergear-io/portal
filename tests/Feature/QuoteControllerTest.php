@@ -40,7 +40,7 @@ class QuoteControllerTest extends TestCase
 
         $response = $this->post($url, ['decision' => 'approve']);
 
-        $response->assertRedirect(route('quotes.show', $quote));
+        $response->assertRedirect(route('quotes.checkout', $quote));
 
         $quote->refresh();
 

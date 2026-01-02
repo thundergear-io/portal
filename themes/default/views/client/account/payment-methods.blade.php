@@ -1,4 +1,4 @@
-<div class="container mt-14">
+<div class="container mt-20">
     <x-navigation.breadcrumb />
     <div class="px-2">
         @if($setupModalVisible)

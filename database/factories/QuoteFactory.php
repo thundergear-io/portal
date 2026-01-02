@@ -18,7 +18,7 @@ class QuoteFactory extends Factory
     public function definition(): array
     {
         $startDate = $this->faker->dateTimeBetween('+1 day', '+1 month');
-        $endDate = (clone $startDate)->modify('+'. $this->faker->numberBetween(14, 60) .' days');
+        $endDate = (clone $startDate)->modify('+' . $this->faker->numberBetween(14, 60) . ' days');
 
         return [
             'public_id' => $this->faker->uuid(),
@@ -29,7 +29,16 @@ class QuoteFactory extends Factory
             'end_date' => $endDate,
             'brief' => $this->faker->paragraph(4),
             'timeline' => $this->faker->paragraph(2),
-            'terms' => $this->faker->paragraph(3),
+            'terms' => [
+                [
+                    'title' => 'Payment Terms',
+                    'content' => $this->faker->paragraph(),
+                ],
+                [
+                    'title' => 'Intellectual Property',
+                    'content' => $this->faker->paragraph(),
+                ],
+            ],
             'cost_items' => [
                 ['description' => 'Discovery & Research', 'amount' => $this->faker->numberBetween(1500, 3500)],
                 ['description' => 'Design & UX', 'amount' => $this->faker->numberBetween(2500, 5500)],

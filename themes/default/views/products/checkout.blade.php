@@ -33,7 +33,7 @@
                 @if($product->configOptions->count() > 0 || count($this->getCheckoutConfig()) > 0)
                 <div class="bg-base-200/50 p-6 sm:p-8 rounded-3xl border border-base-300 space-y-8">
                     <h3 class="text-xl font-black text-base-content flex items-center gap-3">
-                        <span class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-content text-xs">2</span>
+                        <span class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-black text-xs">2</span>
                         Configure Options
                     </h3>
                     

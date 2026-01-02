@@ -1,4 +1,4 @@
-<nav class="w-full px-4 lg:px-8 bg-base-100 border-b border-base-300 md:h-16 flex md:flex-row flex-col justify-between fixed top-0 z-50">
+<nav class="w-full px-4 lg:px-8 bg-base-100 border-b border-base-300 md:h-20 flex md:flex-row flex-col justify-between fixed top-0 z-50">
     <div
         x-data="{ 
             slideOverOpen: false,
@@ -7,7 +7,7 @@
         x-init="$watch('slideOverOpen', value => { document.documentElement.style.overflow = value ? 'hidden' : '' })"
         class="relative z-50 w-full h-auto">
         <div
-            class="flex flex-row items-center justify-between h-16"
+            class="flex flex-row items-center justify-between h-20"
             :class="hasAside ? 'w-full' : 'container'">
 
             <div class="flex flex-row items-center">

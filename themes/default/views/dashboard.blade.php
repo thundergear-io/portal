@@ -1,4 +1,4 @@
-<div class="container mt-14 mb-10">
+<div class="container mt-20 mb-10">
     <x-navigation.breadcrumb />
     <p class="text-base-content/60 font mt-2 mb-8">
         {{ __('dashboard.dashboard_description') }}
@@ -16,14 +16,14 @@
                         </div>
                         <h2 class="text-xl font-semibold">{{ __('dashboard.active_services') }}</h2>
                     </div>
-                    <span class="bg-primary flex items-center justify-center font-semibold rounded-md size-5 text-sm text-white">
+                    <span class="bg-primary flex items-center justify-center font-semibold rounded-md size-5 text-sm text-black">
                         {{ Auth::user()->services()->where('status', 'active')->count() }}
                     </span>
                 </div>
                 <div class="space-y-4">
                     <livewire:services.widget status="active" />
                 </div>
-                <x-navigation.link class="btn btn-primary flex items-center text-base-100 justify-center"
+                <x-navigation.link class="btn btn-primary flex items-center text-black hover:bg-primary hover:text-black justify-center"
                     :href="route('services')">
                     {{ __('dashboard.view_all') }}
                     <x-ri-arrow-right-fill class="size-5" />
@@ -44,14 +44,14 @@
                             <x-ri-add-fill class="size-5 h-5" />
                         </a>
                     </div>
-                    <span class="bg-primary flex items-center justify-center font-semibold rounded-md size-5 text-sm text-white">
+                    <span class="bg-primary flex items-center justify-center font-semibold rounded-md size-5 text-sm text-black">
                         {{ Auth::user()->tickets()->where('status', '!=', 'closed')->count() }}
                     </span>
                 </div>
                 <div class="space-y-4">
                     <livewire:tickets.widget />
                 </div>
-                <x-navigation.link class="btn btn-primary flex items-center justify-center"
+                <x-navigation.link class="btn btn-primary flex items-center text-black hover:bg-primary hover:text-black justify-center"
                     :href="route('tickets')">
                     {{ __('dashboard.view_all') }}
                     <x-ri-arrow-right-fill class="size-5 h-5" />
@@ -70,14 +70,14 @@
                         </div>
                         <h2 class="text-xl font-semibold">{{ __('dashboard.unpaid_invoices') }}</h2>
                     </div>
-                    <span class="bg-primary flex items-center justify-center font-semibold rounded-md size-5 text-sm text-white">
+                    <span class="bg-primary flex items-center justify-center font-semibold rounded-md size-5 text-sm text-black">
                         {{ Auth::user()->invoices()->where('status', 'pending')->count() }}
                     </span>
                 </div>
                 <div class="space-y-4">
                     <livewire:invoices.widget :limit="3" />
                 </div>
-                <x-navigation.link class="btn btn-primary flex items-center justify-center"
+                <x-navigation.link class="btn btn-primary flex items-center text-black hover:bg-primary hover:text-black justify-center"
                     :href="route('invoices')">
                     {{ __('dashboard.view_all') }}
                     <x-ri-arrow-right-fill class="size-5 h-5" />
