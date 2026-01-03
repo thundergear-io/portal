@@ -5,7 +5,7 @@
     <div class="w-full flex flex-col lg:flex-row min-h-screen lg:-mt-20 relative z-0">
         
         <!-- Left side -->
-        <div class="w-full lg:w-1/2 lg:min-h-screen lg:sticky lg:top-0 bg-black z-0 overflow-hidden relative">
+        <div class="w-full lg:w-1/2 bg-[#020712] z-0 overflow-hidden relative">
             <!-- Background Illustration -->
             <div class="absolute inset-0 pointer-events-none" id="beams-container"></div>
 
@@ -69,8 +69,8 @@
 
             <!-- Call to action (fixed with dynamic offset to stay above footer) -->
             <div 
-                class="fixed inset-x-0 lg:left-1/2 lg:right-0 z-50 w-full lg:w-1/2 bg-base-100 backdrop-blur border-t border-base-300"
-                :style="`bottom: calc(env(safe-area-inset-bottom) + ${bottomOffset}px)`"
+                class="fixed inset-x-0 lg:left-1/2 lg:right-0 bottom-0 z-50 w-full lg:w-1/2 bg-base-100 backdrop-blur border-t border-base-300"
+                :style="`bottom: ${bottomOffset}px`"
             >
                 <div class="w-full max-w-xl mx-auto px-6 sm:px-8">
                     <div class="flex py-5 md:py-7 gap-4">
@@ -186,9 +186,9 @@
                         </div>
                     </section>
 
-                    <section class="space-y-5">
+                    <section class="space-y-5 relative">
                         <h3 class="text-lg font-bold">Project Terms</h3>
-                        <div class="join join-vertical w-full bg-base-100 border border-base-300 shadow-sm rounded-3xl">
+                        <div class="join join-vertical w-full bg-base-100 border border-base-300 shadow-sm rounded-3xl relative z-0">
                             @forelse ($quote->terms ?? [] as $index => $term)
                                 <details class="collapse collapse-arrow join-item">
                                     <summary class="collapse-title text-lg font-medium">

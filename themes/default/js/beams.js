@@ -202,6 +202,7 @@ export function initBeams(containerId, options = {}) {
     camera.position.z = isMobile ? 35 : 20;
     camera.updateProjectionMatrix();
     renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.render(scene, camera);
   };
   
   updateCamera();
@@ -287,6 +288,9 @@ export function initBeams(containerId, options = {}) {
   }
 
   window.addEventListener('resize', updateCamera);
+
+  const resizeObserver = new ResizeObserver(() => updateCamera());
+  resizeObserver.observe(container);
 
   requestAnimationFrame(animate);
 }
