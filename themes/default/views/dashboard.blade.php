@@ -23,7 +23,7 @@
                 <div class="space-y-4">
                     <livewire:services.widget status="active" />
                 </div>
-                <x-navigation.link class="btn btn-primary flex items-center text-black hover:bg-primary hover:text-black justify-center"
+                <x-navigation.link class="btn btn-primary flex items-center mt-5 text-black hover:bg-primary hover:text-black justify-center"
                     :href="route('services')">
                     {{ __('dashboard.view_all') }}
                     <x-ri-arrow-right-fill class="size-5" />
@@ -51,7 +51,7 @@
                 <div class="space-y-4">
                     <livewire:tickets.widget />
                 </div>
-                <x-navigation.link class="btn btn-primary flex items-center text-black hover:bg-primary hover:text-black justify-center"
+                <x-navigation.link class="btn btn-primary flex items-center mt-5 text-black hover:bg-primary hover:text-black justify-center"
                     :href="route('tickets')">
                     {{ __('dashboard.view_all') }}
                     <x-ri-arrow-right-fill class="size-5 h-5" />
@@ -77,7 +77,7 @@
                 <div class="space-y-4">
                     <livewire:invoices.widget :limit="3" />
                 </div>
-                <x-navigation.link class="btn btn-primary flex items-center text-black hover:bg-primary hover:text-black justify-center"
+                <x-navigation.link class="btn btn-primary flex items-center mt-5 text-black hover:bg-primary hover:text-black justify-center"
                     :href="route('invoices')">
                     {{ __('dashboard.view_all') }}
                     <x-ri-arrow-right-fill class="size-5 h-5" />

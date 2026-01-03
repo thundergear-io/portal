@@ -1,3 +1,5 @@
+@props(['toolbar' => true])
+
 @once
     @vite('themes/' . config('settings.theme', 'default') . '/js/easymde-entry.js', config('settings.theme', 'default'))
 @endonce
@@ -14,7 +16,7 @@
                     className: 'upload-image',
                     defaultValue: '',
                 }],
-                toolbar: [{
+                toolbar: {{ $toolbar ? 'true' : 'false' }} ? [{
                         name: 'bold',
                         action: EasyMDE.toggleBold,
                     }, {
@@ -53,7 +55,7 @@
                         action: EasyMDE.redo,
                     },
 
-                ],
+                ] : false,
             });
 
             editor.codemirror.on('change', function() {

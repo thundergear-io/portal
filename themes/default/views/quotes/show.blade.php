@@ -2,16 +2,16 @@
     @php
         $currencySymbol = $quote->currencyModel?->prefix ?? '$';
     @endphp
-    <div class="w-full flex flex-col lg:flex-row min-h-screen relative z-0">
+    <div class="w-full flex flex-col lg:flex-row min-h-screen lg:-mt-20 relative z-0">
         
         <!-- Left side -->
-        <div class="w-full lg:w-1/2 lg:h-screen lg:sticky lg:top-0 bg-black z-0 overflow-hidden relative">
+        <div class="w-full lg:w-1/2 lg:min-h-screen lg:sticky lg:top-0 bg-black z-0 overflow-hidden relative">
             <!-- Background Illustration -->
             <div class="absolute inset-0 pointer-events-none" id="beams-container"></div>
 
-            <div class="h-full w-full max-w-xl mx-auto flex flex-col justify-center px-6 sm:px-8 py-14 lg:py-24 relative z-10">
+            <div class="h-full lg:min-h-screen w-full max-w-xl mx-auto flex flex-col justify-center px-6 sm:px-8 py-14 lg:py-24 relative z-10">
                 <div class="flex flex-col justify-center flex-1">
-                    <div class="bg-base-200/20 backdrop-blur rounded-3xl p-6 space-y-4">
+                    <div class="rounded-3xl p-4 space-y-4">
                         <div class="flex items-center gap-3">
                             <h2 class="text-xl font-bold text-primary">Quote for</h2>
                             <span class="badge {{ $quote->status->value === 'approved' ? 'badge-success' : ($quote->status->value === 'declined' ? 'badge-error' : 'badge-warning') }}">
@@ -27,7 +27,7 @@
 
         <!-- Right side -->
         <main 
-            class="w-full lg:w-1/2 bg-base-200 text-base-content relative flex flex-col"
+            class="w-full lg:w-1/2 lg:mt-20 bg-base-200 text-base-content relative flex flex-col"
             x-data="{ 
                 showRejectModal: false, 
                 showApproveModal: false,

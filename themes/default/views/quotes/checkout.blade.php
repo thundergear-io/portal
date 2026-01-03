@@ -1,13 +1,13 @@
 <x-app-layout :title="$title ?? 'Checkout'">
-    <div class="flex flex-col lg:flex-row min-h-screen relative z-0">
+    <div class="flex flex-col lg:flex-row min-h-screen lg:-mt-20 relative z-0">
 
         <!-- Left side (same as show) -->
-        <div class="w-full lg:w-1/2 bg-red-500 lg:sticky lg:top-16 lg:overflow-y-auto z-0">
+        <div class="w-full lg:w-1/2 lg:min-h-screen lg:sticky lg:top-0 bg-red-500 lg:overflow-y-auto z-0 relative">
             <div class="absolute top-0 -translate-y-64 left-1/2 -translate-x-1/2 blur-3xl pointer-events-none" aria-hidden="true">
                 <div class="w-96 h-96 bg-primary/20 rounded-full"></div>
             </div>
 
-            <div class="min-h-full w-full max-w-xl mx-auto flex flex-col justify-start px-4 sm:px-6 py-12 lg:py-20">
+            <div class="h-full lg:min-h-screen w-full max-w-xl mx-auto flex flex-col justify-start px-4 sm:px-6 py-12 lg:py-20">
                 <div class="grow flex flex-col justify-center">
                     <div class="space-y-3">
                         <div class="flex items-center gap-3">
@@ -22,7 +22,7 @@
         </div>
 
         <!-- Right side (checkout form) -->
-        <main class="w-full lg:w-1/2 bg-base-200 text-base-content">
+        <main class="w-full lg:w-1/2 lg:mt-20 bg-base-200 text-base-content">
             <div class="grow w-full max-w-xl mx-auto px-4 sm:px-6 py-12 lg:py-20 pb-32">
                 <article class="space-y-8">
                     <section>

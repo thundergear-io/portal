@@ -41,9 +41,9 @@
             @endif
 
             @if (count($breadcrumbs) === 1)
-                <span class="text-2xl font-bold">
+                <h1 class="text-2xl font-bold">
                     {{ $breadcrumb['name'] ?? '' }}
-                </span>
+                </h1>
             @elseif ($index === count($breadcrumbs) - 1)
                 <span class="text-base/80 font-semibold">
                     {{ $breadcrumb['name'] ?? '' }}

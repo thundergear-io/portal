@@ -30,7 +30,7 @@
 }
 
 .EasyMDEContainer .CodeMirror {
-    @apply bg-base-300 px-3 py-1.5 text-inherit !rounded-b-3xl !border-0;
+    @apply bg-base-300 px-3 py-1.5 text-inherit !rounded-3xl !border-0;
 }
 
 .EasyMDEContainer .CodeMirror-scroll {
@@ -38,7 +38,7 @@
 }
 
 .EasyMDEContainer .editor-toolbar {
-    @apply flex gap-x-1 overflow-x-auto rounded-none border-0 border-b border-base-300 px-2.5 py-2 bg-base-300 rounded-t-3xl;
+    @apply flex gap-x-1 overflow-x-auto rounded-none border-0 border-b border-base-300 px-2.5 py-2 bg-white rounded-t-3xl;
 }
 
 .EasyMDEContainer .editor-toolbar button {

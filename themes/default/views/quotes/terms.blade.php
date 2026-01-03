@@ -1,13 +1,13 @@
 <x-app-layout :title="$title ?? 'Accept Terms'">
-    <div class="flex flex-col lg:flex-row min-h-screen relative z-0">
+    <div class="flex flex-col lg:flex-row min-h-screen lg:-mt-20 relative z-0">
 
         <!-- Left side (same as show) -->
-        <div class="w-full lg:w-1/2 bg-black lg:sticky lg:top-0 lg:h-screen z-0 overflow-hidden relative">
+        <div class="w-full lg:w-1/2 lg:min-h-screen lg:sticky lg:top-0 bg-black z-0 overflow-hidden relative">
             <div class="absolute inset-0 pointer-events-none" id="beams-container"></div>
 
-            <div class="min-h-full w-full max-w-xl mx-auto flex flex-col justify-start px-4 sm:px-6 py-12 lg:py-20 relative z-10">
+            <div class="h-full lg:min-h-screen w-full max-w-xl mx-auto flex flex-col justify-start px-4 sm:px-6 py-12 lg:py-20 relative z-10">
                 <div class="grow flex flex-col justify-center">
-                    <div class="bg-base-200/20 backdrop-blur rounded-3xl p-6 space-y-3">
+                    <div class="rounded-3xl p-6 space-y-3">
                         <div class="flex items-center gap-3">
                             <h2 class="text-xl font-bold text-primary">Quote for</h2>
                             <span class="badge {{ $quote->status->value === 'approved' ? 'badge-success' : ($quote->status->value === 'declined' ? 'badge-error' : 'badge-warning') }}">
@@ -22,7 +22,7 @@
         </div>
 
         <!-- Right side (terms acceptance) -->
-        <main class="w-full lg:w-1/2 bg-base-200 text-base-content">
+        <main class="w-full lg:w-1/2 lg:mt-20 bg-base-200 text-base-content">
             <div class="grow w-full max-w-xl mx-auto px-6 sm:px-8 py-14 lg:py-24 pb-36">
                 <article class="space-y-12">
                     <section class="space-y-4">

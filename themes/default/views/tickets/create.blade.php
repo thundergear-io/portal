@@ -31,12 +31,12 @@
 
             <div class="mt-4">
                 <form wire:submit.prevent="create" wire:ignore>
-                    <label for="editor" class="block text-sm font-medium text-primary-100">
+                    <label for="editor" class="block text-lg mb-2 font-medium text-primary-100">
                         {{ __('ticket.reply') }}
                     </label>
                     <textarea id="editor" placeholder="Initial message"></textarea>
                     
-                    <label for="attachments" class="block text-sm font-medium text-primary-100 mt-2">
+                    <label for="attachments" class="block text-lg mb-2 font-medium text-primary-100 mt-2">
                         {{ __('ticket.attachments') }}
                     </label>
                     <div x-data="{
@@ -100,11 +100,11 @@
                             wire:model.live="attachments" x-ref="fileInput"
                             @change="selectedFiles = Array.from($event.target.files)" />
                     </div>
-                    <x-button.primary class="mt-2 !w-fit float-right">
+                    <x-button.primary class="mt-5 w-full float-right">
                         {{ __('ticket.create') }}
                     </x-button.primary>
                 </form>
-                <x-easymde-editor />
+                <x-easymde-editor :toolbar="false" />
             </div>
         </div>
     </div>

@@ -148,7 +148,7 @@
                             </x-button.primary>
                         </div>
                     </form>
-                    <x-easymde-editor />
+                    <x-easymde-editor :toolbar="false" />
                 </div>
 
             </div>
