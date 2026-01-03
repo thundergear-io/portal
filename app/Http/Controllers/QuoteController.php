@@ -89,7 +89,9 @@ class QuoteController extends Controller
     public function checkout(Quote $quote): View|RedirectResponse
     {
         if (!Auth::check()) {
-            return redirect()->route('login')->with('intended', route('quotes.checkout', ['quote' => $quote->public_id]));
+            session()->put('url.intended', route('quotes.checkout', ['quote' => $quote->public_id]));
+
+            return redirect()->route('register');
         }
 
         // Check if order already exists
